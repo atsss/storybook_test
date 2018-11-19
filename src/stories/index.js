@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
 import Balloon from '../components/atoms/Balloon'
-import Heading from '../components/atoms/Heading'
+import Heading, { HeadingUnderlined } from '../components/atoms/Heading'
 import Img from '../components/atoms/Img'
 
 storiesOf('Balloon', module)
@@ -19,4 +19,7 @@ storiesOf('Img', module)
 storiesOf('Heading', module)
   .add('デフォルト', () => <Heading>見出し</Heading>)
   .add('レベル1', () => <Heading level={ 1 }>見出しレベル1</Heading>)
-  .add('レベル1, 見た目2', () => <Heading level={ 1 } visualLevel={ 2 }>見出しレベル1, 見た目2</Heading>);
+  .add('レベル1, 見た目2', () => <Heading level={ 1 } visualLevel={ 2 }>見出しレベル1, 見た目2</Heading>)
+  .add('下線付き', () => <HeadingUnderlined>下線付き, 見出し</HeadingUnderlined>)
+  .add('下線付き, レベル1', () => <HeadingUnderlined level={ 1 }>下線付き, 見出しレベル1</HeadingUnderlined>)
+  .add('下線付き, レベル1, 見た目2', () => <HeadingUnderlined level={ 1 } visualLevel={ 2 }>下線付き, 見出しレベル1, 見た目2</HeadingUnderlined>);
