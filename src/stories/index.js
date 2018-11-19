@@ -17,6 +17,9 @@ import Txt, { InfoTxt, WarningTxt } from '../components/atoms/Text'
 // molecules
 import DeleteButton from '../components/molecules/DeleteButton'
 
+// organisms
+import Notification from '../components/organisms/Notification';
+
 // atoms
 storiesOf('Balloon', module)
   .add('2文字', () => <Balloon>次へ</Balloon>)
@@ -50,3 +53,15 @@ storiesOf('DeleteButton', module)
   .add('デフォルト', () => withStyle({ margin: '50px' })(
     <DeleteButton onClick= { action('削除ボタンがクリックされました') } />
   ));
+
+// organisms
+const notification = {
+  id: 0,
+  thumbnail: 'https://scontent-nrt1-1.xx.fbcdn.net/v/t1.0-1/c0.0.320.320/p320x320/13631654_879887108807235_2829615063363236677_n.jpg?_nc_cat=101&_nc_ht=scontent-nrt1-1.xx&oh=28bc5da8151830b3e881a150a7fdf4ac&oe=5C6C3AED',
+  title: 'コンポーネント指向で hogehoge',
+  channelName: 'UI チャネル',
+};
+
+storiesOf('Notification', module)
+  .add('デフォルト', () => <Notification program={ notification } onClickDelete={ action('削除ボタンがクリックされました') } />
+    );
