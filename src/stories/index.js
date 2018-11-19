@@ -4,12 +4,20 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
+// utils
+import { withStyle } from '../components/utils/decorator.js';
+
+// atoms
 import Balloon from '../components/atoms/Balloon'
 import Heading, { HeadingUnderlined } from '../components/atoms/Heading'
 import { TrashIcon, SettingIcon, SearchIcon } from '../components/atoms/Icon'
 import Img from '../components/atoms/Img'
 import Txt, { InfoTxt, WarningTxt } from '../components/atoms/Text'
 
+// molecules
+import DeleteButton from '../components/molecules/DeleteButton'
+
+// atoms
 storiesOf('Balloon', module)
   .add('2文字', () => <Balloon>次へ</Balloon>)
   .add('4文字', () => <Balloon>削除する</Balloon>)
@@ -36,3 +44,9 @@ storiesOf('Text', module)
   .add('デフォルト - S', () => <Txt size='s'>デフォルト - S</Txt>)
   .add('情報テキスト - M', () => <InfoTxt>情報テキスト - M</InfoTxt>)
   .add('警告テキスト - L', () => <WarningTxt size='l'>警告テキスト - L</WarningTxt>);
+
+// molecules
+storiesOf('DeleteButton', module)
+  .add('デフォルト', () => withStyle({ margin: '50px' })(
+    <DeleteButton onClick= { action('削除ボタンがクリックされました') } />
+  ));
