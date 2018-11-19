@@ -1,25 +1,34 @@
 import React from 'react';
 import styles from './styles.module.sass';
-import icon from '../../../icons/trash.svg';
+import trashIcon from '../../../icons/trash.svg';
 
-export const TrashIcon = ({
+export const TrashIconPresenter = ({
   height = 20,
   width = 20,
-  className,
+  ...props,
+}) => (
+  <img
+    src={ trashIcon }
+    alt=''
+    height={ height }
+    width={ width }
+    { ...props }
+  />
+);
+
+export const IconContainer = ({
+  presenter,
+  className = '',
   onClick,
   ...props,
 }) => {
   if (onClick) className += ` ${ styles.clickable }`;
-
-  return (
-    <img
-      src={ icon }
-      alt=''
-      height={ height }
-      width={ width }
-      className={ className }
-      onClick={ onClick }
-      { ...props }
-    />
-  );
+  return presenter({ onClick, className, ...props });
 };
+
+export const TrashIcon = props => (
+  <IconContainer
+    presenter={ presenterProps => <TrashIconPresenter { ...presenterProps } /> }
+    { ...props }
+  />
+);
