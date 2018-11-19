@@ -8,6 +8,7 @@ import Balloon from '../components/atoms/Balloon'
 import Heading, { HeadingUnderlined } from '../components/atoms/Heading'
 import { TrashIcon, SettingIcon, SearchIcon } from '../components/atoms/Icon'
 import Img from '../components/atoms/Img'
+import Txt, { InfoTxt, WarningTxt } from '../components/atoms/Text'
 
 storiesOf('Balloon', module)
   .add('2文字', () => <Balloon>次へ</Balloon>)
@@ -30,3 +31,8 @@ storiesOf('Heading', module)
   .add('下線付き', () => <HeadingUnderlined>下線付き, 見出し</HeadingUnderlined>)
   .add('下線付き, レベル1', () => <HeadingUnderlined level={ 1 }>下線付き, 見出しレベル1</HeadingUnderlined>)
   .add('下線付き, レベル1, 見た目2', () => <HeadingUnderlined level={ 1 } visualLevel={ 2 }>下線付き, 見出しレベル1, 見た目2</HeadingUnderlined>);
+
+storiesOf('Text', module)
+  .add('デフォルト - S', () => <Txt size='s'>デフォルト - S</Txt>)
+  .add('情報テキスト - M', () => <InfoTxt>情報テキスト - M</InfoTxt>)
+  .add('警告テキスト - L', () => <WarningTxt size='l'>警告テキスト - L</WarningTxt>);
