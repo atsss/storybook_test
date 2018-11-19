@@ -1,14 +1,17 @@
 import React from 'react';
 import styles from './styles.module.sass';
 import trashIcon from '../../../icons/trash.svg';
+import searchIcon from '../../../icons/search.svg';
+import settingIcon from '../../../icons/setting.svg';
 
-export const TrashIconPresenter = ({
+export const IconPresenter = ({
+  iconName,
   height = 20,
   width = 20,
   ...props,
 }) => (
   <img
-    src={ trashIcon }
+    src={ iconName }
     alt=''
     height={ height }
     width={ width }
@@ -26,9 +29,13 @@ export const IconContainer = ({
   return presenter({ onClick, className, ...props });
 };
 
-export const TrashIcon = props => (
+export const iconFactory = iconName => props => (
   <IconContainer
-    presenter={ presenterProps => <TrashIconPresenter { ...presenterProps } /> }
-    { ...props }
+    presenter={ presenterProps => <IconPresenter { ...presenterProps } /> }
+    { ...{ iconName, ...props } }
   />
 );
+
+export const TrashIcon = iconFactory(trashIcon)
+export const SettingIcon = iconFactory(settingIcon)
+export const SearchIcon = iconFactory(searchIcon)
