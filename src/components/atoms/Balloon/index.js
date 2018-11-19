@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './styles.module.sass';
 
-const Balloon = () => <span className={ styles.balloon }>削除する</span>;
+const Balloon = ({ children, className, ...props }) => (
+  <span className={ [ styles.balloon, className].join(' ') } { ...props }>{ children }</span>
+);
 
 export default Balloon;
